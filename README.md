@@ -7,23 +7,23 @@
 ## 1. Установка проекта
 
 ### 1.1 Клонирование репозитория
-git clone <ссылка на репозиторий>
-cd simple-tasks-backend
+- git clone <ссылка на репозиторий>
+- cd simple-tasks-backend
 
 ### 1.2 Установка зависимостей
 yarn install
 
 ### 1.3 Настройка PostgreSQL
-brew install postgresql
-brew services start postgresql
-psql -U postgres
-CREATE DATABASE test_db;
+- brew install postgresql
+- brew services start postgresql
+- psql -U postgres
+- CREATE DATABASE test_db;
 
 ### 1.4 Миграции и подключение
-yarn typeorm migration:run
+- yarn typeorm migration:run
 
 ### 1.5 Запуск сервера
-yarn start
+- yarn start
 http://localhost:3000/graphql
 
 ### 2.Полезные команды
@@ -31,7 +31,7 @@ http://localhost:3000/graphql
 Типы миграций с TypeORM:
 
 Создание миграции:
-yarn typeorm migration:generate -n <migration_name>
+- yarn typeorm migration:generate -n <migration_name>
 
 Применение миграций:
-yarn typeorm migration:run
+- yarn typeorm migration:run
