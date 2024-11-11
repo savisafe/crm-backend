@@ -1,16 +1,26 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { UserResolver } from './graphql/resolvers/UserResolver';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import {AppResolver} from "./resolvers/app.resolver";
 
 @Module({
   imports: [
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      autoSchemaFile: 'src/schema.gql',
+      autoSchemaFile: true,
+    }),
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      username: 'postgres',
+      password: 'password',
+      database: 'test_db',
+      synchronize: true,
+      autoLoadEntities: true,
     }),
   ],
-  controllers: [],
-  providers: [UserResolver],
+  providers: [AppResolver],
 })
 export class AppModule {}
